@@ -1,0 +1,92 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<router-outlet></router-outlet>
+
+
+
+<div class="container-fluit">
+  <h1>Enrollment Form</h1>
+  <form #userForm="ngForm">
+
+
+      <!-- <div ngModelGroup="address">
+          <div class="form-group">
+            <label for="">Street</label>
+            <input type="text" class="form-control" name="street" ngModel>
+          </div>
+      
+          <div class="form-group">
+              <label for="">City</label>
+              <input type="text" class="form-control" name="city" ngModel>
+            </div>
+      
+            <div class="form-group">
+                <label for="">State</label>
+                <input type="text" class="form-control" name="state" ngModel>
+              </div>
+      
+              <div class="form-group">
+                  <label for="">Postal Code</label>
+                  <input type="text" class="form-control" name="postal" ngModel>
+                </div>
+      
+      </div>
+       -->
+
+    {{userForm.value | json }}
+    <hr>
+    {{userModel | json }}
+
+    <div class="form-group">
+      <label for="">Name</label>
+      <input type="text" class="form-control" name="username" [(ngModel)]="userModel.name">
+    </div>
+
+    <div class="form-group">
+        <label for="">Email</label>
+        <input type="email" class="form-control" name="email" [(ngModel)]="userModel.email" >
+      </div>
+
+      <div class="form-group">
+          <label for="">Phone</label>
+          <input type="tel" class="form-control" name="phone" ngModel>
+        </div>
+
+        <div class="form-group">
+            <select class="custom-select" name="topic" ngModel >
+              <option selected> I am interesed in</option>
+              <option *ngFor="let topic of topics">{{topic}}</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="">Time preference</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="timePreference" value="morning" ngModel />
+                    <label for="" class="form-check-label">Morning (9AM -12PM)</label>
+            
+            </div>
+  
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="timePreference" value="evening" ngModel/>
+                      <label for="" class="form-check-label">Evening (5PM -8PM)</label>
+              </div>
+          </div>
+
+          <div class="form-check mb-3">
+            <input type="checkbox" class="from-check-input" name="subscribe" ngModel >
+            <label for="" class="form-check-label">Send me promotional offers</label>
+          </div>
+
+          <button class="btn btn-primary">Submit</button>
+
+
+
+  </form>
+
+</div>
+
+<app-employee-list></app-employee-list>
+<app-employee-detail></app-employee-detail>
